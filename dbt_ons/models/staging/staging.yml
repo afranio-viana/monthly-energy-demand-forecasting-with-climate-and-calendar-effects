@@ -1,0 +1,8 @@
+version: 1
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: dias_uteis_2000_2025
+      - name: regioes
