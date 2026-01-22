@@ -7,3 +7,4 @@ sources:
       - name: dias_uteis_2000_2025
       - name: regioes
       - name: granularidade_mensal
+      - name: t2m_2000_2025
