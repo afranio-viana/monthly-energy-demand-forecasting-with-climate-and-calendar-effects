@@ -10,3 +10,4 @@ sources:
       - name: t2m_2000_2025
       - name: t2m_max_avg_2000_2025
       - name: t2m_min_avg_2000_2025
+      - name: prectotcorr_sum_2000_2025
