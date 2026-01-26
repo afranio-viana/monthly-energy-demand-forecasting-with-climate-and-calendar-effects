@@ -1,0 +1,4 @@
+models/**/*.sql linguist-language=SQL
+models/**/*.yml linguist-language=YAML
+
+models/** linguist-vendored=false
