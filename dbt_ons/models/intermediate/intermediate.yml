@@ -1,0 +1,7 @@
+version: 1
+
+sources:
+  - name: staging
+    schema: staging
+    tables:
+      - name: stg_dias_uteis
