@@ -5,3 +5,7 @@ sources:
     schema: staging
     tables:
       - name: stg_dias_uteis
+      - name: stg_temperatura_media
+      - name: stg_media_temperatura_maxima_diaria
+      - name: stg_media_temperatura_minima_diaria
+      - name: stg_precipitacao_mensal_acumulada
