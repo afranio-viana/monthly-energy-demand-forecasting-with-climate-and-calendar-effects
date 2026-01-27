@@ -9,3 +9,5 @@ sources:
       - name: stg_media_temperatura_maxima_diaria
       - name: stg_media_temperatura_minima_diaria
       - name: stg_precipitacao_mensal_acumulada
+      - name: stg_granularidade_mensal
+      - name: stg_regioes
