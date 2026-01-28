@@ -11,3 +11,8 @@ sources:
       - name: stg_precipitacao_mensal_acumulada
       - name: stg_granularidade_mensal
       - name: stg_regioes
+  - name: intermediate
+    schema: intermediate
+    tables:
+      - name: int_carga_mensal
+      - name: int_calendario_mensal
