@@ -17,3 +17,5 @@ sources:
       - name: int_carga_mensal
       - name: int_calendario_mensal
       - name: int_carga_calendario
+      - name: int_features_temporais
+      - name: int_clima_mensal
