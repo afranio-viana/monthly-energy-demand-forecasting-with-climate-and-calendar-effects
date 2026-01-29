@@ -5,3 +5,7 @@ sources:
     schema: intermediate
     tables:
       - name: int_features_completas
+  - name: marts
+    schema: marts
+    tables:
+      - name: dim_tempo
