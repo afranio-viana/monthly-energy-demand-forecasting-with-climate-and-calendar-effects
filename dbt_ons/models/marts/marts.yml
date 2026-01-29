@@ -1,0 +1,7 @@
+version: 1
+
+sources:
+  - name: intermediate
+    schema: intermediate
+    tables:
+      - name: int_features_completas
