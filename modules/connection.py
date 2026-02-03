@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
+import pandas as pd
 import os
 
 
@@ -30,5 +31,15 @@ def create_schema(engine,schema):
             conn.execute(text(f'CREATE SCHEMA IF NOT EXISTS {schema};'))
             conn.commit()
             print(f'O esquema {schema} foi criado')
+    except Exception as e:
+        print(f'Erro: {e}')
+
+def save_dt(engine,schema,table,path):
+    try:
+        with engine.connect() as conn:
+            query = f'SELECT * FROM {schema}.{table};'
+            df = pd.read_sql(query,engine)
+            df.to_parquet(f'{path}/{table}.parquet',index=False)
+            print(f'O arquivo {table}.parquet foi criado.')
     except Exception as e:
         print(f'Erro: {e}')
