@@ -19,8 +19,10 @@ lags_columns AS (
 variacao_columns AS (
     SELECT
     lc.*,
-    ((carga_mensal_mwmed-lag_carga_mensal_1)/lag_carga_mensal_1) AS variacao_mom,
-    ((carga_mensal_mwmed-lag_carga_mensal_12)/lag_carga_mensal_12) AS variacao_yoy
+    (carga_mensal_mwmed-lag_carga_mensal_1) AS variacao_mensal,
+    (carga_mensal_mwmed-lag_carga_mensal_12) AS variacao_anual,
+    ((carga_mensal_mwmed-lag_carga_mensal_1)/lag_carga_mensal_1) AS variacao_percentual_mensal,
+    ((carga_mensal_mwmed-lag_carga_mensal_12)/lag_carga_mensal_12) AS variacao_percentual_anual
     FROM lags_columns lc
 )
 
