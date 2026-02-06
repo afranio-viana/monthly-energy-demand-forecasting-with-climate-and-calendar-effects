@@ -28,9 +28,13 @@ join_tables AS (
         fc.media_movel_carga_mensal_12,
         fc.variacao_mensal,
         fc.variacao_anual,
+        fc.lag_variacao_mensal_1,
         fc.variacao_percentual_mensal,
         fc.variacao_percentual_anual,
         fc.temperatura_media_mensal,
+        fc.lag_temperatura_media_mensal_1,
+        fc.variacao_mensal_temperatura_media_mensal,
+        fc.lag_diff_variacao_mensal_temperatura_media_mensal_1,
         fc.temperatura_max_media,
         fc.temperatura_min_media,
         fc.prec_acum_mensal
