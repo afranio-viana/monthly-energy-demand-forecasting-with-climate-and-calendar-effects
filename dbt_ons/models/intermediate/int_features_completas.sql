@@ -12,6 +12,8 @@ join_columns AS (
     SELECT
     ft.*,
     (LAG(temperatura_media_mensal,1) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes)) AS lag_temperatura_media_mensal_1,
+    (LAG(temperatura_media_mensal,3) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes)) AS lag_temperatura_media_mensal_3,
+    (LAG(temperatura_media_mensal,12) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes)) AS lag_temperatura_media_mensal_12,
     cm.temperatura_media_mensal,
     cm.temperatura_max_media,
     cm.temperatura_min_media,
@@ -24,14 +26,17 @@ join_columns AS (
 variacao AS (
     SELECT
         jc.*,
-        (jc.temperatura_media_mensal-jc.lag_temperatura_media_mensal_1) AS variacao_mensal_temperatura_media_mensal
+        (jc.temperatura_media_mensal-jc.lag_temperatura_media_mensal_1) AS diff_temperatura_media_1,
+        (jc.temperatura_media_mensal-jc.lag_temperatura_media_mensal_3) AS diff_temperatura_media_3,
+        (jc.temperatura_media_mensal-jc.lag_temperatura_media_mensal_12) AS diff_temperatura_media_12
+
     FROM join_columns jc
 ),
 
 lags AS (
     SELECT
         vc.*,
-        (LAG(vc.variacao_mensal_temperatura_media_mensal,1) OVER (PARTITION BY vc.id_regiao ORDER BY vc.ano_mes)) AS lag_diff_variacao_mensal_temperatura_media_mensal_1
+        (LAG(vc.diff_temperatura_media_1,1) OVER (PARTITION BY vc.id_regiao ORDER BY vc.ano_mes)) AS lag_diff_variacao_mensal_temperatura_media_mensal_1
     FROM variacao vc
 )
 
