@@ -14,6 +14,8 @@ join_columns AS (
     (LAG(temperatura_media_mensal,1) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes)) AS lag_temperatura_media_mensal_1,
     (LAG(temperatura_media_mensal,3) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes)) AS lag_temperatura_media_mensal_3,
     (LAG(temperatura_media_mensal,12) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes)) AS lag_temperatura_media_mensal_12,
+    (AVG(temperatura_media_mensal) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)) AS media_movel_temperatura_media_mensal_3,
+    (AVG(temperatura_media_mensal) OVER (PARTITION BY ft.id_regiao ORDER BY ft.ano_mes ROWS BETWEEN 11 PRECEDING AND CURRENT ROW)) AS media_movel_temperatura_media_mensal_12,
     cm.temperatura_media_mensal,
     cm.temperatura_max_media,
     cm.temperatura_min_media,
